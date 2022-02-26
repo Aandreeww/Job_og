@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center><h1>Works log</h1></center>
+{% for item in news %}
+    <h2>Action # {{ loop.index }}</h2>
+    <table border="1" width="100%">
+        <tr>
+            <td bgcolor="grey">Title of activity</td>
+            <td bgcolor="grey">Team leader</td>
+            <td bgcolor="grey">Duration</td>
+            <td bgcolor="grey">List of collaborators</td>
+            <td bgcolor="grey">is finished</td>
+        </tr>
+        <tr>
+            <td bgcolor="yellow">{{ item.job }}</td>
+            <td bgcolor="yellow">{{ ids[item.team_leader] }}</td>
+            <td bgcolor="yellow">{{ item.work_size }} hours</td>
+            <td bgcolor="yellow">{{ item.collaborators }}</td>
+            {% if item.collaborators %}
+                <td bgcolor="pink">Is finished</td>
+            {% else %}
+                <td bgcolor="pink">Is not finished</td>
+            {% endif %}
+        </tr>
+    </table>
+{% endfor %}
+{% endblock %}
